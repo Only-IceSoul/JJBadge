@@ -30,7 +30,7 @@ dependencies {
 
 # Customization
 
-## Attributes:
+### Attributes:
 
 ### JJBadge
 ```
