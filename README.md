@@ -24,7 +24,7 @@ dependencies {
 
 # Preview
 
-![Preview](assets/Badge.jpg)
+![Preview](assets/badge.jpg)
 
 
 
