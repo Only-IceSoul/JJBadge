@@ -1,0 +1,2 @@
+include ':app', ':jjkit-badge'
+rootProject.name='SampleBadge'
