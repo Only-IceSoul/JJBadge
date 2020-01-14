@@ -19,7 +19,6 @@ import android.widget.RelativeLayout
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.TypefaceCompat
 
 import com.jjlf.jjkit_layoututils.JJMargin
@@ -2910,7 +2909,7 @@ class JJBadge : View {
         //endregion
     }
 
-    var mInit = true
+    private var mInit = true
     private var mlsHeight = 0
     private var mlsWidth = 0
     private var mlsMargins = JJMargin()
@@ -3041,21 +3040,21 @@ class JJBadge : View {
 
     //region Badge
 
-    fun ssBadgeStrokeColor(color:Int): JJBadge {
+    fun setBadgeStrokeColor(color:Int): JJBadge {
         mBadgeIsStrokeEnabled = true
         mBadgePaintStroke.color = color
         return this
     }
 
     private var mBadgeIsStrokeWithWidthEnabled = false
-    fun ssBadgeStrokeWdith(width:Float): JJBadge {
+    fun setBadgeStrokeWdith(width:Float): JJBadge {
         mBadgeIsStrokeWithWidthEnabled = true
         mBadgePaintStroke.strokeWidth = width
         return this
     }
 
 
-    fun ssText(text: String): JJBadge {
+    fun setText(text: String): JJBadge {
         mText = text
         return this
     }
@@ -3065,17 +3064,17 @@ class JJBadge : View {
         return this
     }
 
-    fun ssTypeFace(typeface: Typeface): JJBadge {
+    fun setTypeFace(typeface: Typeface): JJBadge {
         mPaintText.typeface  = typeface
         return this
     }
 
-    fun ssTextSize(textSize: Float): JJBadge {
+    fun setTextSize(textSize: Float): JJBadge {
         mPaintText.textSize = applyDimension(TypedValue.COMPLEX_UNIT_SP,textSize)
         return this
     }
 
-    fun ssTextSize(unit:Int,size: Float): JJBadge {
+    fun setTextSize(unit:Int,size: Float): JJBadge {
         mPaintText.textSize = applyDimension(unit,size)
         return this
     }
@@ -3090,95 +3089,98 @@ class JJBadge : View {
        return  TypedValue.applyDimension(unit,size,r.displayMetrics)
     }
 
-    fun ssTextColor(color: Int): JJBadge {
+    fun setTextColor(color: Int): JJBadge {
         mPaintText.color = color
         return this
     }
 
     private var mIsTextHidden = false
-    fun ssIsTextHidden(boolean: Boolean) : JJBadge {
+    fun setIsTextHidden(boolean: Boolean) : JJBadge {
         mIsTextHidden = boolean
         return this
+    }
+
+    fun getIsTextHidden() : Boolean {
+        return mIsTextHidden
     }
 
     //endregion
 
     //region method set get
 
-
-
     private var mIdentifier = 0
-    fun ssIdentifier(value: Int): JJBadge {
+    fun setIdentifier(value: Int): JJBadge {
         mIdentifier = value
         return this
     }
 
-    fun ggIdentifier():Int{
+    fun getIdentifier():Int{
         return mIdentifier
     }
 
     private var mState = 0
-    fun ssState(state: Int): JJBadge {
+    fun setState(state: Int): JJBadge {
         mState = state
         return this
     }
 
-    fun ggState():Int{
+    fun getState():Int{
         return mState
     }
 
     private var mAttribute = ""
-    fun ssAttribute(string:String): JJBadge {
+    fun setAttribute(string:String): JJBadge {
         mAttribute = string
         return this
     }
 
-    fun ggAttribute(): String {
+    fun getAttribute(): String {
         return mAttribute
     }
 
-    fun ssVisibility(type: Int): JJBadge {
+    fun setVisibilityJL(type: Int): JJBadge {
         visibility = type
         return this
     }
 
 
-    fun ssMaxWidth(value:Int) : JJBadge {
+    fun setMaxWidth(value:Int) : JJBadge {
         maxWidth = value
+        setVisibilityJL(GONE)
         return this
     }
-    fun ssMaxHeight(value:Int) : JJBadge {
+    fun setMaxHeight(value:Int) : JJBadge {
         maxHeight = value
         return this
     }
 
 
-    fun ssMinimumHeight(h:Int): JJBadge {
+    fun setMinimumHeightJL(h:Int): JJBadge {
         minimumHeight = h
         return this
     }
 
-    fun ssMinimumWidth(w:Int): JJBadge {
+    fun setMinimumWidthJL(w:Int): JJBadge {
         minimumWidth = w
         return this
     }
 
-    fun ssBackgroundColor(color: Int): JJBadge {
+    fun setBackgroundColorJL(color: Int): JJBadge {
         setBackgroundColor(color)
         return this
     }
 
-    fun ssBackground(drawable: Drawable?): JJBadge {
+    fun setBackgroundJL(drawable: Drawable?): JJBadge {
         background = drawable
         return this
     }
 
-    fun ssAlpha(opacity : Float): JJBadge {
+    fun setAlphaJL(opacity : Float): JJBadge {
         alpha = opacity
         return this
     }
 
-    fun ssPadding(pad: JJPadding) : JJBadge {
+    fun setPadding(pad: JJPadding) : JJBadge {
         mlpPadding = pad
         setPaddingRelative(pad.left,pad.top,pad.right,pad.bottom)
         return this

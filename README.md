@@ -17,14 +17,14 @@ allprojects {
 2.- Add the dependency
 ```
 dependencies {
-	        implementation 'com.github.Only-IceSoul:JJBadge:1.0'
+	        implementation 'com.github.Only-IceSoul:JJBadge:1.1'
             
 	}
 ```
 
 # Preview
 
-![Preview](assets/Badge.jpg)
+![Preview](assets/badge.jpg)
 
 
 

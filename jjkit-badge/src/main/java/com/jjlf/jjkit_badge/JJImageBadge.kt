@@ -3151,6 +3151,7 @@ class JJImageBadge : AppCompatImageView {
     private var mIsClipOutPathAll = false
     private var mIsPathClosureClipAll = false
     private var mClosurePathClipAll : ((RectF, Path,JJPadding)->Unit)? = null
+    @Suppress("DEPRECATION")
     override fun draw(canvas: Canvas) {
         //clip
         if(mIsClipAllEnabled) {
@@ -3192,6 +3193,7 @@ class JJImageBadge : AppCompatImageView {
     private var mIsPathClosureClipChildren = false
     private var mClosurePathClipChildren : ((RectF, Path)->Unit)? = null
     private var mRectClip = RectF()
+    @Suppress("DEPRECATION")
     override fun onDraw(canvas: Canvas?) {
 
         if(mIsClipChildrenEnabled) {
@@ -3233,30 +3235,30 @@ class JJImageBadge : AppCompatImageView {
     //endregion
 
     //region Badge
-    fun ssBadgeStrokeColor(color:Int): JJImageBadge {
+    fun setBadgeStrokeColor(color:Int): JJImageBadge {
         mBadgeIsStrokeEnabled = true
         mBadgePaintStroke.color = color
         return this
     }
-    fun ssBadgeText(text: String): JJImageBadge {
+    fun setBadgeText(text: String): JJImageBadge {
         mBadgeText = text
         return this
     }
-    fun ssBadgeText(resId: Int): JJImageBadge {
+    fun setBadgeText(resId: Int): JJImageBadge {
         mBadgeText = resources.getString(resId)
         return this
     }
-    fun ssBadgeTypeFace(typeface: Typeface): JJImageBadge {
+    fun setBadgeTypeFace(typeface: Typeface): JJImageBadge {
         mBadgePaintText.typeface  = typeface
         return this
     }
-    fun ssBadgeTextSize(size: Float): JJImageBadge {
+    fun setBadgeTextSize(size: Float): JJImageBadge {
         mBadgePaintText.textSize = applyDimension(TypedValue.COMPLEX_UNIT_SP,size)
         return this
     }
 
 
-    fun ssBadgeTextSize(unit:Int,size: Float): JJImageBadge {
+    fun setBadgeTextSize(unit:Int,size: Float): JJImageBadge {
         mBadgePaintText.textSize = applyDimension(unit,size)
         return this
     }
@@ -3271,20 +3273,20 @@ class JJImageBadge : AppCompatImageView {
         return  TypedValue.applyDimension(unit,size,r.displayMetrics)
     }
 
-    fun ssBadgeTextColor(color: Int): JJImageBadge {
+    fun setBadgeTextColor(color: Int): JJImageBadge {
         mBadgePaintText.color = color
         return this
     }
-    fun ssBadgeBackgroundColor(color: Int): JJImageBadge {
+    fun setBadgeBackgroundColor(color: Int): JJImageBadge {
         mBadgePaint.color = color
         return this
     }
-    fun ssBadgeOffset(dx:Float, dy:Float): JJImageBadge {
+    fun setBadgeOffset(dx:Float, dy:Float): JJImageBadge {
         mBadgeOffsetX = dx
         mBadgeOffsetY = dy
         return this
     }
-    fun ssBadgeAlignment(value:Int) : JJImageBadge {
+    fun setBadgeAlignment(value:Int) : JJImageBadge {
         mBadgeAlignment = value
         return this
     }
@@ -3506,7 +3508,7 @@ class JJImageBadge : AppCompatImageView {
 
     //region method set get
 
-    fun ssClipChildrenToPath(path: Path): JJImageBadge {
+    fun setClipChildrenToPath(path: Path): JJImageBadge {
         mPathClipChildren = path
         mIsPathClosureClipChildren = false
         mIsClipInPathChildren = true
@@ -3515,7 +3517,7 @@ class JJImageBadge : AppCompatImageView {
         return this
     }
 
-    fun ssClipAllToPath(path: Path): JJImageBadge {
+    fun setClipAllToPath(path: Path): JJImageBadge {
         mPathClipAll = path
         mIsPathClosureClipAll = false
         mIsClipInPathAll = true
@@ -3525,7 +3527,7 @@ class JJImageBadge : AppCompatImageView {
     }
 
 
-    fun ssClipOutChildrenToPath(path: Path): JJImageBadge {
+    fun setClipOutChildrenToPath(path: Path): JJImageBadge {
         mPathClipChildren = path
         mIsPathClosureClipChildren = false
         mIsClipOutPathChildren = true
@@ -3535,7 +3537,7 @@ class JJImageBadge : AppCompatImageView {
     }
 
 
-    fun ssClipOutAllToPath(path: Path): JJImageBadge {
+    fun setClipOutAllToPath(path: Path): JJImageBadge {
         mPathClipAll = path
         mIsPathClosureClipAll = false
         mIsClipOutPathAll = true
@@ -3544,7 +3546,7 @@ class JJImageBadge : AppCompatImageView {
         return this
     }
 
-    fun ssClipChildrenToPath(closure:(RectF, Path)->Unit): JJImageBadge {
+    fun setClipChildrenToPath(closure:(RectF, Path)->Unit): JJImageBadge {
         mIsClipInPathChildren = true
         mIsPathClosureClipChildren = true
         mIsClipOutPathChildren = false
@@ -3553,7 +3555,7 @@ class JJImageBadge : AppCompatImageView {
         return this
     }
 
-    fun ssClipAllToPath(closure:(RectF, Path,JJPadding)->Unit): JJImageBadge {
+    fun setClipAllToPath(closure:(RectF, Path,JJPadding)->Unit): JJImageBadge {
         mIsClipInPathAll = true
         mIsPathClosureClipAll = true
         mIsClipOutPathAll = false
@@ -3562,7 +3564,7 @@ class JJImageBadge : AppCompatImageView {
         return this
     }
 
-    fun ssClipOutChildrenToPath(closure:(RectF, Path)->Unit): JJImageBadge {
+    fun setClipOutChildrenToPath(closure:(RectF, Path)->Unit): JJImageBadge {
         mIsClipInPathChildren = false
         mIsPathClosureClipChildren = true
         mIsClipOutPathChildren = true
@@ -3571,7 +3573,7 @@ class JJImageBadge : AppCompatImageView {
         return this
     }
 
-    fun ssClipOutAllToPath(closure:(RectF, Path,JJPadding)->Unit): JJImageBadge {
+    fun setClipOutAllToPath(closure:(RectF, Path,JJPadding)->Unit): JJImageBadge {
         mIsClipInPathAll = false
         mIsPathClosureClipAll = true
         mIsClipOutPathAll = true
@@ -3600,139 +3602,139 @@ class JJImageBadge : AppCompatImageView {
 
 
 
-    fun ssIdentifier(value: Int): JJImageBadge {
+    fun setIdentifier(value: Int): JJImageBadge {
         mIdentifier = value
         return this
     }
 
-    fun ggIdentifier():Int{
+    fun getIdentifier():Int{
         return mIdentifier
     }
 
 
-    fun ssState(state: Int): JJImageBadge {
+    fun setState(state: Int): JJImageBadge {
         mState = state
         return this
     }
 
-    fun ggState():Int{
+    fun getState():Int{
         return mState
     }
 
 
-    fun ssAttribute(string:String): JJImageBadge {
+    fun setAttribute(string:String): JJImageBadge {
         mAttribute = string
         return this
     }
 
-    fun ggAttribute(): String {
+    fun getAttribute(): String {
         return mAttribute
     }
-    fun ssIsFocusable(boolean: Boolean): JJImageBadge {
+    fun setIsFocusable(boolean: Boolean): JJImageBadge {
         isFocusable = boolean
         return this
     }
 
-    fun ssIsFocusableInTouchMode(boolean: Boolean): JJImageBadge {
+    fun setIsFocusableInTouchMode(boolean: Boolean): JJImageBadge {
         isFocusableInTouchMode = boolean
         return this
     }
 
-    fun ssImageDrawable(drawable: Drawable?): JJImageBadge {
+    fun setImageDrawableJL(drawable: Drawable?): JJImageBadge {
         setImageDrawable(drawable)
         return this
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun ssOutlineProvider(provider: ViewOutlineProvider): JJImageBadge {
+    fun setOutlineProviderJL(provider: ViewOutlineProvider): JJImageBadge {
         outlineProvider = provider
         return this
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun ssClipToOutline(boolean: Boolean): JJImageBadge {
+    fun setClipToOutlineJL(boolean: Boolean): JJImageBadge {
         clipToOutline = boolean
         return this
     }
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-    fun ssClipBounds(rect: Rect): JJImageBadge {
+    fun setClipBoundsJL(rect: Rect): JJImageBadge {
         clipBounds = rect
         return this
     }
 
-    fun ssImageBitmap(bitmap: Bitmap?): JJImageBadge {
+    fun setImageBitmapJL(bitmap: Bitmap?): JJImageBadge {
         if(bitmap != null) setImageBitmap(bitmap)
         return this
     }
 
-    fun ssImageResource(resDrawable: Int): JJImageBadge {
+    fun setImageResourceJL(resDrawable: Int): JJImageBadge {
         setImageResource(resDrawable)
         return this
     }
 
-    fun ssOnClickListener(listener: (View)->Unit): JJImageBadge {
+    fun setOnClickListenerJL(listener: (View)->Unit): JJImageBadge {
         setOnClickListener(listener)
         return this
     }
 
 
-    fun ssScaleType(scaleType: ScaleType): JJImageBadge {
+    fun setScaleTypeJL(scaleType: ScaleType): JJImageBadge {
         setScaleType(scaleType)
         return this
     }
 
-    fun ssBackgroundColor(color: Int): JJImageBadge {
+    fun setBackgroundColorJL(color: Int): JJImageBadge {
         setBackgroundColor(color)
         return this
     }
 
-    fun ssBackground(drawable: Drawable?): JJImageBadge {
+    fun setBackgroundJL(drawable: Drawable?): JJImageBadge {
         background = drawable
         return this
     }
 
-    fun ssPadding(padding:JJPadding): JJImageBadge {
+    fun setPadding(padding:JJPadding): JJImageBadge {
         mlpPadding = padding
         setPaddingRelative(padding.left,padding.top,padding.right,padding.bottom)
         return this
     }
-    fun ssLayerType(type: Int, paint: Paint? = null) : JJImageBadge {
+    fun setLayerTypeJL(type: Int, paint: Paint? = null) : JJImageBadge {
         setLayerType(type, paint)
         return this
     }
 
-    fun ssLayerSoftware(): JJImageBadge {
+    fun setLayerSoftware(): JJImageBadge {
         setLayerType(View.LAYER_TYPE_SOFTWARE,null)
         return this
     }
 
-    fun ssVisibility(type: Int): JJImageBadge {
+    fun setVisibilityJL(type: Int): JJImageBadge {
         visibility = type
         return this
     }
 
-    fun ssMinimumHeight(h:Int): JJImageBadge {
+    fun setMinimumHeightJL(h:Int): JJImageBadge {
         minimumHeight = h
         return this
     }
 
-    fun ssMinimumWidth(w:Int): JJImageBadge {
+    fun setMinimumWidthJL(w:Int): JJImageBadge {
         minimumWidth = w
         return this
     }
 
-    fun ssMaxHeight(h:Int): JJImageBadge {
+    fun setMaxHeightJL(h:Int): JJImageBadge {
         maxHeight = h
         return this
     }
 
-    fun ssMaxWidth(w:Int): JJImageBadge {
+    fun setMaxWidthJL(w:Int): JJImageBadge {
         maxWidth = w
         return this
     }
 
-    fun ggPadding() : JJPadding {
+    fun getPadding() : JJPadding {
         var pl = paddingLeft
         var pr = paddingRight
         if(paddingStart > 0) pl = paddingStart
