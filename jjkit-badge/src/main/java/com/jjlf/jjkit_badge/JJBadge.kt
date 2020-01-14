@@ -3038,7 +3038,7 @@ class JJBadge : View {
     }
    
 
-    //region Badge
+    //region Badge set and get
 
     fun setBadgeStrokeColor(color:Int): JJBadge {
         mBadgeIsStrokeEnabled = true
